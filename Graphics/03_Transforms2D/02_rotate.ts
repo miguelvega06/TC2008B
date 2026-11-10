@@ -54,15 +54,15 @@ function drawScene(
     // TODO: Convert the angle to radians,
     // and send a vector with cosine and sine as a uniform
     const angleDegrees = 30;
-    const angleRadians = angleDegrees * Math.PI / 180;
-    const rotation = [Math.cos(angleRadians), Math.sin(angleRadians)];
+    const angleRadians = angleDegrees;
+    const rotation = [0, 0];
 
     let uniforms =
     {
         u_resolution: [gl.canvas.width, gl.canvas.height],
         u_color: [Math.random(), Math.random(), Math.random(), 1],
+        u_translation: translation,
         u_rotation: rotation,
-        u_translation: translation
     }
     console.log(uniforms);
 
