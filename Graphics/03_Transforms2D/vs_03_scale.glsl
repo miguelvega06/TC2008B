@@ -4,7 +4,7 @@ in vec2 a_position;
 uniform vec2 u_resolution;
 uniform vec2 u_translation;
 uniform vec2 u_rotation;
-uniform vec2 u_scale;
+uniform vec2 u_scale; 
 
 vec4 projection2D(vec2 position, vec2 resolution) {
     // Convert the position from pixels to 0.0 - 1.0
@@ -25,14 +25,16 @@ vec4 projection2D(vec2 position, vec2 resolution) {
 void main() {
     // Apply scaling, by multiplying the coodinates by a the scale vector
     // TODO:
-    vec2 scaledPosition = a_position;
+    vec2 scaledPosition = a_position * u_scale;
 
     // Apply rotation
-    vec2 rotatedPosition = vec2(scaledPosition.x, scaledPosition.y);
+    vec2 rotatedPosition = vec2
+    (a_position.x * u_rotation.x - scaledPosition.y * u_rotation.y, 
+    a_position.y * u_rotation.x + scaledPosition.x * u_rotation.y);
 
 
     // Apply translation
-    vec2 position = rotatedPosition;
+    vec2 position = rotatedPosition + u_translation;
 
     gl_Position = projection2D(position, u_resolution);
 }

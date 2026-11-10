@@ -99,7 +99,7 @@ function smiley(radius: number) : twgl.Arrays {
     positionData.push(0, 100);
     positionData.push(-120, -100);
     positionData.push(120, -100);
-    colorData.push(0.9, 0.8, 0, 1);
+    colorData.push(9, 8, 0, 1);
     colorData.push(0.9, 0.8, 0, 1);
     colorData.push(0.9, 0.8, 0, 1);
 
